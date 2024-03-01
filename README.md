@@ -20,6 +20,17 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+
+## Set up - Save some intial googling
+Get you spotify app credentials for the oauth to work from
+https://developer.spotify.com/dashboard
+
+Add SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, NEXTAUTH_SECRET to your .env file.
+Sent http://localhost:3000/api/auth/callback/spotify as your redirect URI
+Create NEXTAUTH_SECRET by running:
+`openssl rand -base64 32`
+
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
