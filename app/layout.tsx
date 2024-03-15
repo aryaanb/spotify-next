@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { getServerSession } from 'next-auth';
-import SessionProvider from './components/SessionProvider';
+import SessionProvider from './providers/SessionProvider';
 import NavMenu from './components/NavMenu/NavMenu';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { ThemeProvider, CssBaseline } from '@mui/material';
@@ -31,7 +31,7 @@ export default async function RootLayout({
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <body className={inter.className}>
-              <SessionProvider session={session}>
+              <SessionProvider session={session} refetchInterval={60 * 60}>
                 <main className='bg-neutral-900'>
                   <NavMenu />
                   {children}

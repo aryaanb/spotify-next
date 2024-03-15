@@ -10,7 +10,7 @@ import { AuthSession } from '@/types/types';
 function SignOutButton() {
   return (
     <button
-      className='bg-base-100 border-transparent '
+      className='bg-neutral-800 border-transparent m-0'
       onClick={() => signOut()}
     >
       Sign out
@@ -28,11 +28,7 @@ export default function NavMenu() {
           Spotify TRACKer
         </Link>
       </div>
-      <div>
-        <Link className='btn btn-ghost text-xl' href='/tracks'>
-          Top Tracks
-        </Link>
-      </div>
+      <div>{session?.user?.name}</div>
       <div className='flex-none mx-3'>
         <div className='dropdown dropdown-end'>
           <div

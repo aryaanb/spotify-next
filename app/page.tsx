@@ -1,22 +1,18 @@
-import { getServerSession } from 'next-auth';
-import authOptions from './api/auth/[...nextauth]/authOptions';
+import React from 'react';
+import { customGet, getAuthSession } from '@/utils/serverUtils';
 import { redirect } from 'next/navigation';
+import TrackTable from '@/components/TrackTable/TrackTable';
 
-export default async function Home() {
-  const session = await getServerSession(authOptions);
+const tracks = async () => {
+  const session = await getAuthSession();
   if (!session) {
     redirect('/login');
   }
   return (
-    <>
-      <div className='bg-neutral-800'>
-        getServerSession Result
-        {session?.user?.name ? (
-          <div>{session?.user?.name}</div>
-        ) : (
-          <div>Not logged in</div>
-        )}
-      </div>
-    </>
+    <div>
+      <TrackTable />
+    </div>
   );
-}
+};
+
+export default tracks;
