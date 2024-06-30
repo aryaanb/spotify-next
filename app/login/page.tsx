@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Login() {
   const handleLogin = () => {
-    signIn('spotify', { callbackUrl: 'http://localhost:3000' });
+    signIn('spotify', { callbackUrl: process.env.NEXT_PUBLIC_URL });
   };
   // <Image
   //   src='/images/spotify_logo.png'
