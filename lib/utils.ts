@@ -10,7 +10,7 @@ export function parseTrackObjects(tracks: any): Track[] {
       track: track.name,
       artists: '',
       album: track.album.name,
-      imageUrl: track.album.images[0].url,
+      imageUrl: track.album.images[0]?.url,
       spotifyUri: track.uri,
     };
     // get artists of the track
